@@ -28,13 +28,11 @@ class EmployeesController < ApplicationController
     end
 
     def update
-        @employee = Employee.new(employee_params)
-
         if @employee.valid?
-            @employee.save
+            @employee.update(employee_params)
             redirect_to @employee
         else
-            render :new
+            render :edit
         end
     end
 
